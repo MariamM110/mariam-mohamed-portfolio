@@ -16,6 +16,7 @@ const config: Config = {
         green200: "#729386",
 
         grey: "#DDDDDD",
+        grey100: "#D6D6D6",
         greyP200: "#EEEEEE",
         greyP300: "#CCCCCC",
         greyP400: "#BBBBBB",

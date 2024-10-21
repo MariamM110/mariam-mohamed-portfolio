@@ -1,22 +1,5 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./css/globals.css";
-
-const jetBrainsMono = localFont({
-  src: [
-    {
-      path: "./fonts/JetBrainsMono-VariableFont_wght.ttf",
-      weight: "400 700",
-      style: "normal",
-    },
-    {
-      path: "./fonts/JetBrainsMono-Italic-VariableFont_wght.ttf",
-      weight: "400 700",
-      style: "italic",
-    },
-  ],
-  variable: "--font-jetbrains-mono",
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -30,9 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${jetBrainsMono.variable} antialiased`}>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

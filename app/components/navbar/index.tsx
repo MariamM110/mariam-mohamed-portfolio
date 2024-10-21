@@ -1,15 +1,41 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
-const Navbar = () => {
+export const Navbar = () => {
+  const currentPath = usePathname();
+
+  const pages = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Experience", path: "/experience" },
+    { name: "Projects", path: "/projects" },
+    { name: "Contact", path: "/contact" },
+  ];
+
+  const isActive = (path: string) => {
+    return currentPath === path;
+  };
+
   return (
-    <header className="bg-white p-5 m-10 rounded-full">
-      <div className="flex justify-evenly">
-        <span className="text-greenP400">Home</span>
-        <span className="text-greenP400">About</span>
-        <span className="text-greenP400">Experience</span>
-        <span className="text-greenP400">Projects</span>
-        <span className="text-greenP400">Contact</span>
-      </div>
-    </header>
+    <div className="flex justify-center mt-5">
+      <nav className="flex justify-evenly p-4 rounded-full">
+        {pages.map((page, index) => (
+          <Link
+            key={index}
+            href={page.path}
+            aria-label={page.name}
+            className={`px-4 py-2 ${
+              isActive(page.path)
+                ? "text-green font-bold rounded-full bg-grey100"
+                : "text-greenP400"
+            }`}
+          >
+            {page.name}
+          </Link>
+        ))}
+      </nav>
+    </div>
   );
 };

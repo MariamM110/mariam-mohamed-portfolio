@@ -2,21 +2,14 @@ import Image from "next/image";
 import profilePic from "./public/portfolio-outline.png";
 
 import ScrollContext from "./components/ScrollContext";
+import { Navbar } from "./components/navbar";
 
 export default function Home() {
   return (
     <>
       <ScrollContext>
-        <body className="flex flex-col justify-between min-h-screen">
-          {/* <header className="bg-white p-5 m-10 rounded-full">
-            <div className="flex justify-evenly">
-              <span className="text-greenP400">Home</span>
-              <span className="text-greenP400">About</span>
-              <span className="text-greenP400">Experience</span>
-              <span className="text-greenP400">Projects</span>
-              <span className="text-greenP400">Contact</span>
-            </div>
-          </header> */}
+        <div className="flex flex-col justify-between min-h-screen">
+          <Navbar />
           <div className="flex-grow flex items-end mb-10">
             <Image
               src={profilePic}
@@ -26,7 +19,7 @@ export default function Home() {
               priority
             />
           </div>
-        </body>
+        </div>
       </ScrollContext>
     </>
   );
